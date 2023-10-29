@@ -1,0 +1,126 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <div>
+        <form method="get">
+
+            <h1 class="display-4">Video Donwloader Online</h1>
+
+            <div class="input-group-lg">
+
+                <input placeholder="Paste the Copied URL here" type="url" id="texturl" name="texturl" class="ytborder form-control input-lg" required />
+                <button type="submit" class="btnclass btn-primary btn btn-lg" asp-page-handler="submit">Submit</button>
+
+            </div>
+        </form>
+    </div>
+
+    <div>
+        @if (Model.IsURLReady)
+
+        {
+            <div class="row">
+                <div class="col">
+                    <iframe width="100%" height="100%" src="@Model.Texturl"
+                        title=""
+                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media;
+gyroscope; picture-in-picture; web-share" allowfullscreen>
+                    </iframe>
+                </div>
+
+                <div class="col">
+                    <table class="table table-striped table-dark">
+                        <thead>
+                            <tr>
+                                <th scope="col">First</th>
+                                <th scope="col">Quality</th>
+                                <th scope="col">Click here</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>144</td>
+                                <td>
+
+
+                                    <a class="btn btn-success" asp-page-handler="Download" asp-route-texturl="@Model.Texturl"
+                                   asp-route-quality="144">
+                                        Donwload
+                                    </a>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>360</td>
+                                <td>
+
+
+                                    <a class="btn btn-success" asp-page-handler="Download" asp-route-texturl="@Model.Texturl"
+                                   asp-route-quality="360">
+                                        Donwload
+                                    </a>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>720</td>
+                                <td>
+
+
+                                    <a class="btn btn-success" asp-page-handler="Download" asp-route-texturl="@Model.Texturl"
+                                   asp-route-quality="720">
+                                        Donwload
+                                    </a>
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row">4</th>
+                                <td>1080</td>
+                                <td>
+
+
+                                    <a class="btn btn-success" asp-page-handler="Download" asp-route-texturl="@Model.Texturl"
+                                   asp-route-quality="1080">
+                                        Donwload
+                                    </a>
+
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        }
+    </div>
+
+</div>
+
+<style>
+
+    .btnclass {
+        background-color: rgba(204, 0, 0, 0.9);
+        margin-top: 10px;
+    }
+
+    .ytborder {
+        border: rgba(204, 0, 0, 0.9) solid;
+    }
+
+    .ytbgcolor{
+        background-color: rgba(204, 0, 0, 0.9);
+
+    }
+
+</style>
+
